@@ -28,7 +28,7 @@ jobs:
 
     - name: Build executable using PyInstaller
       run: |
-        pyinstaller --onefile --windowed __icon=icon48.icns TTrumps.py # Replace 'TTrumps.py' with the name of your script
+        pyinstaller --onefile --windowed --icon=icon48.icns TTrumps.py # Replace 'TTrumps.py' with the name of your script
 
     - name: Create .dmg file
       run: |
