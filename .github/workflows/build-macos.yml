@@ -1,5 +1,4 @@
-name: Build macOS App
-
+name: TT
 on:
   push:
     branches:
