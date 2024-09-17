@@ -3,3 +3,4 @@ pyperclip
 pynput
 pyobjc-framework-Quartz
 pillow
+setuptools
