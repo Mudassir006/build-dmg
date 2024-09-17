@@ -26,17 +26,21 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt  # Install dependencies from requirements.txt
 
-    - name: Install PyInstaller
+    - name: Install py2app
       run: |
-        python -m pip install pyinstaller  # Install PyInstaller
+        python -m pip install py2app  # Install py2app
 
-    - name: Build executable using PyInstaller
+    - name: Build macOS app using py2app
       run: |
-        pyinstaller --onefile --windowed --icon=icon48.png TTrumps.py  # Replace 'TTrumps.py' with the name of your script
+        python setup.py py2app  # Build the app using py2app
+
+    - name: Adjust permissions
+      run: |
+        chmod -R 755 dist/TTrumps.app  # Ensure correct permissions
 
     - name: Create .dmg file
       run: |
-        hdiutil create -volname MyApp -srcfolder dist/ -ov -format UDZO MyApp.dmg  # Package the executable into a .dmg
+        hdiutil create -volname MyApp -srcfolder dist/ -ov -format UDZO MyApp.dmg  # Package the app into a .dmg
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
