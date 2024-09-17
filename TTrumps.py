@@ -242,7 +242,7 @@ class TextTransformer:
 
 class TextTransformerApp(rumps.App):
     def __init__(self):
-        super(TextTransformerApp, self).__init__("Text Transformer", icon="icon48.icns")
+        super(TextTransformerApp, self).__init__("Text Transformer", icon="icon48.png")
         self.text_transformer = TextTransformer()
         letters = list("abcdefghijklmnopqrstuvwxyz".upper())
         new_letters = []
